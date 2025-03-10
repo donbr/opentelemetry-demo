@@ -10,6 +10,71 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/opentelemetry-demo)](https://artifacthub.io/packages/helm/opentelemetry-helm/opentelemetry-demo)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/9247/badge)](https://www.bestpractices.dev/en/projects/9247)
 
+## Prerequisites
+
+- Docker
+- [Docker Compose](https://docs.docker.com/compose/install/) v2.0.0+
+- Make (optional)
+- 6 GB of RAM for the application
+
+## Get and run the demo
+
+1.  Clone the Demo repository:
+
+    ```shell
+    git clone https://github.com/open-telemetry/opentelemetry-demo.git
+    ```
+
+1.  Change to the demo folder:
+
+    ```shell
+    cd opentelemetry-demo/
+    ```
+
+1.  Login to ghcr.io to download repos
+
+    ```bash
+    echo "$GHCR_TOKEN" | docker login ghcr.io -u $GHCR_USER --password-stdin
+    ```
+
+1.  Start the demo:
+
+    ```shell
+    make start
+    ```
+
+    ```shell
+    docker compose up --force-recreate --remove-orphans --detach
+    ```
+
+  a. Validation
+
+    ```bash
+    docker logs otel-collector 
+    ```
+
+1.  (Optional) Enable API observability-driven testing[^1]:
+
+    ```shell
+    make run-tracetesting
+    ```
+
+    ```shell
+    docker compose -f docker-compose-tests.yml run traceBasedTests
+    ```
+
+## Verify the web store and Telemetry
+
+Once the images are built and containers are started you can access:
+
+- Web store: <http://localhost:8080/>
+- Grafana: <http://localhost:8080/grafana/>
+- Load Generator UI: <http://localhost:8080/loadgen/>
+- Jaeger UI: <http://localhost:8080/jaeger/ui/>
+- Tracetest UI: <http://localhost:11633/>, only when using
+  `make run-tracetesting`
+- Flagd configurator UI: <http://localhost:8080/feature>
+
 ## Welcome to the OpenTelemetry Astronomy Shop Demo
 
 This repository contains the OpenTelemetry Astronomy Shop, a microservice-based

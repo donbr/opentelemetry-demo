@@ -1,0 +1,1732 @@
+(.venv) PS C:\Users\donbr\mcp\github\opentelemetry-demo> python .\python-validation-script.py                                       
+2025-03-09 21:13:13,414 - otel-validation - INFO - OpenTelemetry Endpoint Validation Tool
+2025-03-09 21:13:13,414 - otel-validation - INFO - --------------------------------------------------
+2025-03-09 21:13:13,420 - otel-validation - INFO - Validation run ID: 3c455138
+2025-03-09 21:13:13,420 - otel-validation - INFO - Configuring telemetry with endpoint: http://localhost:4317 (insecure: True)
+2025-03-09 21:13:13,444 - otel-validation - INFO - Sending validation telemetry...
+2025-03-09 21:13:13,445 - otel-validation-logger - INFO - Sending test span, metric, and log to the collector
+2025-03-09 21:13:13,445 - otel-validation-logger - INFO - This is a nested operation
+2025-03-09 21:13:13,947 - otel-validation - INFO - Waiting for telemetry to be exported...
+{
+    "name": "validation.nested",
+    "context": {
+        "trace_id": "0xe56d22a91377bdbab07183ebd85f1b4b",
+        "span_id": "0xbba9d254769192d4",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": "0x72ff6a74f7bfde51",
+    "start_time": "2025-03-10T04:13:13.445920Z",
+    "end_time": "2025-03-10T04:13:13.947074Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "validation.nested": true
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.30.0",
+            "service.name": "otel-validation",
+            "service.instance.id": "3c455138",
+            "validation.run.id": "3c455138"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "name": "validation.test",
+    "context": {
+        "trace_id": "0xe56d22a91377bdbab07183ebd85f1b4b",
+        "span_id": "0x72ff6a74f7bfde51",
+        "trace_state": "[]"
+    },
+    "kind": "SpanKind.INTERNAL",
+    "parent_id": null,
+    "start_time": "2025-03-10T04:13:13.445920Z",
+    "end_time": "2025-03-10T04:13:13.947074Z",
+    "status": {
+        "status_code": "UNSET"
+    },
+    "attributes": {
+        "validation.attribute": "test_value"
+    },
+    "events": [],
+    "links": [],
+    "resource": {
+        "attributes": {
+            "telemetry.sdk.language": "python",
+            "telemetry.sdk.name": "opentelemetry",
+            "telemetry.sdk.version": "1.30.0",
+            "service.name": "otel-validation",
+            "service.instance.id": "3c455138",
+            "validation.run.id": "3c455138"
+        },
+        "schema_url": ""
+    }
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741579998449200900,
+                                        "value": 1,
+                                        "exemplars": [
+                                            {
+                                                "filtered_attributes": {},
+                                                "value": 1,
+                                                "time_unix_nano": 1741579993445920000,
+                                                "span_id": 13522570616364962516,
+                                                "trace_id": 304959874389836993504162553942052379467
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741579998449200900,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": [
+                                            {
+                                                "filtered_attributes": {},
+                                                "value": 123.45,
+                                                "time_unix_nano": 1741579993445920000,
+                                                "span_id": 13522570616364962516,
+                                                "trace_id": 304959874389836993504162553942052379467
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+2025-03-09 21:13:18,947 - otel-validation - INFO - Validation complete! Check your collector/backend for the telemetry.
+2025-03-09 21:13:18,947 - otel-validation - INFO - Look for service.name=otel-validation in your queries
+2025-03-09 21:13:20,765 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 1s.
+2025-03-09 21:13:20,766 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 1s.
+2025-03-09 21:13:20,766 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 1s.
+2025-03-09 21:13:21,782 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 2s.
+2025-03-09 21:13:21,782 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 2s.
+2025-03-09 21:13:21,782 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 2s.
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580003452616200,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580003452616200,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+2025-03-09 21:13:23,792 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 4s.
+2025-03-09 21:13:23,792 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 4s.
+2025-03-09 21:13:23,799 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 4s.
+2025-03-09 21:13:27,810 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 8s.
+2025-03-09 21:13:27,810 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 8s.
+2025-03-09 21:13:27,815 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 8s.
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580008460831000,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580008460831000,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580013464443600,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580013464443600,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+2025-03-09 21:13:35,821 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 16s.
+2025-03-09 21:13:35,821 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 16s.
+2025-03-09 21:13:35,829 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 16s.
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580018466103500,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580018466103500,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580023468484800,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580023468484800,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580028478815900,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580028478815900,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+2025-03-09 21:13:51,830 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting logs to localhost:4317, retrying in 32s.
+2025-03-09 21:13:51,830 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 32s.
+2025-03-09 21:13:51,835 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting traces to localhost:4317, retrying in 32s.
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580033487965900,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580033487965900,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580038490769800,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580038490769800,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580043496275600,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580043496275600,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580048507025500,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580048507025500,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580053516814100,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580053516814100,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580058518363400,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580058518363400,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580063520312600,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580063520312600,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+{
+    "resource_metrics": [
+        {
+            "resource": {
+                "attributes": {
+                    "telemetry.sdk.language": "python",
+                    "telemetry.sdk.name": "opentelemetry",
+                    "telemetry.sdk.version": "1.30.0",
+                    "service.name": "otel-validation",
+                    "service.instance.id": "3c455138",
+                    "validation.run.id": "3c455138"
+                },
+                "schema_url": ""
+            },
+            "scope_metrics": [
+                {
+                    "scope": {
+                        "name": "otel-validation-meter",
+                        "version": "",
+                        "schema_url": "",
+                        "attributes": null
+                    },
+                    "metrics": [
+                        {
+                            "name": "validation.counter",
+                            "description": "Counter metric for validation",
+                            "unit": "1",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580063831552000,
+                                        "value": 1,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2,
+                                "is_monotonic": true
+                            }
+                        },
+                        {
+                            "name": "validation.histogram",
+                            "description": "Histogram metric for validation",
+                            "unit": "ms",
+                            "data": {
+                                "data_points": [
+                                    {
+                                        "attributes": {
+                                            "validation.type": "test"
+                                        },
+                                        "start_time_unix_nano": 1741579993445920000,
+                                        "time_unix_nano": 1741580063831552000,
+                                        "count": 1,
+                                        "sum": 123.45,
+                                        "bucket_counts": [
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            1,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0,
+                                            0
+                                        ],
+                                        "explicit_bounds": [
+                                            0.0,
+                                            5.0,
+                                            10.0,
+                                            25.0,
+                                            50.0,
+                                            75.0,
+                                            100.0,
+                                            250.0,
+                                            500.0,
+                                            750.0,
+                                            1000.0,
+                                            2500.0,
+                                            5000.0,
+                                            7500.0,
+                                            10000.0
+                                        ],
+                                        "min": 123.45,
+                                        "max": 123.45,
+                                        "exemplars": []
+                                    }
+                                ],
+                                "aggregation_temporality": 2
+                            }
+                        }
+                    ],
+                    "schema_url": ""
+                }
+            ],
+            "schema_url": ""
+        }
+    ]
+}
+2025-03-09 21:14:23,856 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 1s.
+2025-03-09 21:14:24,876 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 2s.
+2025-03-09 21:14:26,899 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 4s.
+2025-03-09 21:14:30,904 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 8s.
+2025-03-09 21:14:38,951 - opentelemetry.exporter.otlp.proto.grpc.exporter - WARNING - Transient error StatusCode.UNAVAILABLE encountered while exporting metrics to localhost:4317, retrying in 16s.
