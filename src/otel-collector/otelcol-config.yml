@@ -101,8 +101,10 @@ processors:
   batch:
   memory_limiter:
     check_interval: 5s
-    limit_percentage: 80
-    spike_limit_percentage: 25
+    # limit_percentage: 80
+    # spike_limit_percentage: 25
+    limit_mib: 4096  # percentage was not working on my system
+    spike_limit_mib: 2048 # percentage was not working on my system
   transform:
     error_mode: ignore
     trace_statements:
@@ -122,7 +124,7 @@ service:
       processors: [memory_limiter, transform, batch]
       exporters: [otlp, debug, spanmetrics]
     metrics:
-      receivers: [hostmetrics, docker_stats, httpcheck/frontend-proxy, otlp, redis, spanmetrics]
+      receivers: [httpcheck/frontend-proxy, otlp, redis, spanmetrics]
       processors: [memory_limiter, batch]
       exporters: [otlphttp/prometheus, debug]
     logs:
