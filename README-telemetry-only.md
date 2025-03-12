@@ -1,22 +1,20 @@
 # Running OpenTelemetry Demo in Telemetry-Only Mode
 
-This guide explains how to run just the telemetry components of the OpenTelemetry Demo while disabling the core demo services. This configuration is useful when you want to:
+This guide explains how to run just the telemetry components of the OpenTelemetry Demo without the core demo services. This lightweight configuration is ideal for:
 
-1. Run a lightweight version with minimal resources
-2. Use the telemetry stack for monitoring your own applications
-3. Explore Jaeger and Grafana without the demo services
+- Running with minimal resource consumption
+- Monitoring your own applications with a complete telemetry stack
+- Exploring Jaeger and Grafana functionality independently
 
-## Based on OpenTelemetry Demo Architecture
+## Architecture Overview
 
-- https://opentelemetry.io/docs/demo/architecture/
-
+This setup is based on the [OpenTelemetry Demo Architecture](https://opentelemetry.io/docs/demo/architecture/).
 
 ```mermaid
 graph TB
 subgraph tdf[Telemetry Data Flow]
     subgraph subgraph_padding [ ]
         style subgraph_padding fill:none,stroke:none;
-        %% padding to stop the titles clashing
         subgraph od[OpenTelemetry Demo]
         ms(Microservice)
         end
@@ -85,99 +83,71 @@ subgraph tdf[Telemetry Data Flow]
 end
 ```
 
-## Setup Instructions
+## Quick Start
 
-### 1. Create the Telemetry-Only Compose File
-
-Save the provided `docker-compose-telemetry-only.yml` file to your OpenTelemetry Demo directory.
-
-### 2. Start the Telemetry-Only Stack
-
-Run the following command to start just the telemetry components:
+### 1. Launch the Stack
 
 ```bash
 docker compose -f docker-compose-telemetry-only.yml up -d
 ```
 
-### 3. Access the Telemetry UIs
+### 2. Access the UIs
 
-Once the services are up and running, you can access:
+- **Jaeger**: [http://localhost:8080/jaeger/ui/](http://localhost:8080/jaeger/ui/)
+- **Grafana**: [http://localhost:8080/grafana/](http://localhost:8080/grafana/)
+- **Prometheus**: [http://localhost:9090](http://localhost:9090)
 
-- **Jaeger UI**: http://localhost:8080/jaeger/ui/
-- **Grafana**: http://localhost:8080/grafana/
-- **Prometheus**: http://localhost:9090
-
-## How It Works
+## Implementation Details
 
 This configuration:
 
-1. **Keeps all telemetry components**:
-   - OpenTelemetry Collector
-   - Jaeger
-   - Grafana
-   - Prometheus
-   - OpenSearch
+- **Retains all telemetry components** (OTel Collector, Jaeger, Grafana, Prometheus, OpenSearch)
+- **Minimizes dependencies** using lightweight containers for required services
+- **Configures frontend-proxy (Envoy)** to route requests to appropriate telemetry UIs
 
-2. **Uses minimal dummy services** for essential dependencies:
-   - A minimal Nginx container for the frontend
-   - Alpine-based dummy containers for other required services
+## Sending Your Application's Telemetry
 
-3. **Configures the frontend-proxy (Envoy)** to route UI requests to the appropriate telemetry UIs
+Configure your applications to send telemetry data to this stack:
 
-## Sending Telemetry from Your Applications
+- **For gRPC-based OTLP export**:
+  ```
+  OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
+  ```
 
-You can now send telemetry data from your own applications to this stack:
-
-1. **For traces and metrics**:
-   ```
-   OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4317
-   ```
-
-2. **For HTTP-based OTLP export**:
-   ```
-   OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
-   ```
+- **For HTTP-based OTLP export**:
+  ```
+  OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318
+  ```
 
 ## Resource Requirements
 
-This configuration requires significantly fewer resources than the full demo:
-
-- **RAM**: ~1.9GB (vs ~6GB for the full demo)
-- **CPU**: Minimal usage compared to the full demo
-- **Disk**: ~2GB of Docker image storage
+Significantly lighter than the full demo:
+- **RAM**: ~1.9GB (vs ~6GB for full demo)
+- **CPU**: Minimal usage
+- **Disk**: ~2GB for Docker images
 
 ## Troubleshooting
 
 If you encounter issues:
 
-1. **Verify service status**:
-   ```bash
-   docker compose -f docker-compose-telemetry-only.yml ps
-   ```
+```bash
+# Check service status
+docker compose -f docker-compose-telemetry-only.yml ps
 
-2. **Check service logs**:
-   ```bash
-   docker compose -f docker-compose-telemetry-only.yml logs otel-collector
-   docker compose -f docker-compose-telemetry-only.yml logs frontend-proxy
-   ```
+# View logs
+docker compose -f docker-compose-telemetry-only.yml logs otel-collector
+docker compose -f docker-compose-telemetry-only.yml logs frontend-proxy
 
-3. **Verify port accessibility**:
-   ```bash
-   curl -I http://localhost:8080/grafana/
-   curl -I http://localhost:8080/jaeger/ui/
-   ```
+# Verify endpoint accessibility
+curl -I http://localhost:8080/grafana/
+curl -I http://localhost:8080/jaeger/ui/
+curl -I http://localhost:4318
+```
 
-4. **Ensure collector is accessible**:
-   ```bash
-   curl -I http://localhost:4318
-   ```
-
-## Returning to Full Demo Mode
-
-To switch back to the complete demo:
+## Switching Back to Full Demo
 
 ```bash
-# Stop telemetry-only mode
+# Stop telemetry-only stack
 docker compose -f docker-compose-telemetry-only.yml down
 
 # Start full demo
